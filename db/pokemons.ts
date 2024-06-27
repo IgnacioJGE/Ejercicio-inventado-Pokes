@@ -15,4 +15,16 @@ const schemapokemon= new Schema({
 
 export type tipopokemon= mongoose.Document & (Pokemon)
 
+schemapokemon.pre("save",async function(next){
+    const existe= await mongoose.models.Pokemons.findOne({nombre:this.nombre})
+    if(existe){
+        return next(new Error(
+            `nombre:${this.nombre},
+            id:${this.id},
+            url:${this.url},
+            types:${this.types}`))
+    }
+    next()
+})
+
 export const ModeloPokemon= mongoose.model<tipopokemon>("Pokemons",schemapokemon)

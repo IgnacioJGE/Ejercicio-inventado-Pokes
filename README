@@ -11,7 +11,7 @@ y sus tipos
 
 las funciones que se tienen que hacer son:
 getPokemon: busca un pokemon por id de mongo 
-getPokemonApi: busca un pokemon por nombre en la api y lo guarda en la base de datos.
+getPokemonApi: busca un pokemon por nombre en la api y lo guarda en la base de datos, si el pokemon ya existe en la nase de datos no lo guarda solo lo muestra.
 getPokemons: muestra todos los pokemons de la base de datos.
 deletePokemon: borra un pokemon por id de la base de datos.
 
