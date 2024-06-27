@@ -1,5 +1,4 @@
 import {Request,Response} from "npm:express@4.18.2";
-import axios from "npm:axios"
 import { ModeloPokemon } from "../db/pokemons.ts";
 
 
