@@ -2,13 +2,11 @@ import {Request,Response} from "npm:express@4.18.2";
 import { ModeloPokemon } from "../db/pokemons.ts";
 
 
-export default async function getPokemon(req:Request,res:Response){
+export default async function getallPokemons(req:Request,res:Response){
   try {
-    const id= req.params.id
-
-    const existe= await ModeloPokemon.findById(id)
+    const existe= await ModeloPokemon.find()
     if(!existe){
-        throw new Error("No existe nigún pokemon con ese id")
+        throw new Error("No hay pokemons")
     }
     return res.status(200).send(existe)
   } catch (error) {

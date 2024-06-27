@@ -3,6 +3,8 @@ import mongoose from "npm:mongoose@7.6.3"
 import { load } from "https://deno.land/std@0.204.0/dotenv/mod.ts";
 import getPokemonsApi from "./resolvers/getPokemonApi.ts";
 import getPokemon from "./resolvers/getPokemon.ts";
+import getallPokemons from "./resolvers/getPokemons.ts";
+import deletePokemon from "./resolvers/deletePokemon.ts"
 
 
 const env=await load()
@@ -22,6 +24,9 @@ try {
   app.use(express.json())
   app.post("/getPokemonApi/:nombre",getPokemonsApi)
   app.get("/getPokemon/:id",getPokemon)
+  app.get("/getPokemons",getallPokemons)
+  app.delete("/deletePokemon/:id",deletePokemon)
+
 
 
   app.listen(PORT,()=> console.info ((`Te estoy escuchando desde ${PORT}`)));
