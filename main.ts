@@ -6,7 +6,7 @@ import getPokemon from "./resolvers/getPokemon.ts";
 
 
 const env=await load()
-const MONGO_URL=env.MONGO_URL||Deno.env.get("MONGO_URL")
+const MONGO_URL=Deno.env.get("MONGO_URL")||env.MONGO_URL
 const PORT=env.PORT||Deno.env.get("PORT")||8000
 
 if (!MONGO_URL) {
